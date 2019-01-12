@@ -6,6 +6,7 @@ function handleKeyPress (event) {
   if (btn) {
     btn.classList.add("playing")
     let audio = document.querySelector(`audio[data-key="${event.keyCode}"]`)
+    audio.currentTime = 0
     audio.play()
   }
 }
