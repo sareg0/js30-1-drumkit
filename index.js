@@ -1,5 +1,3 @@
-document.addEventListener("keydown", handleKeyPress)
-document.addEventListener("keyup", handleKeyUp)
 
 function handleKeyPress (event) {
   let btn = document.querySelector(`[data-key="${event.keyCode}"]`)
@@ -11,10 +9,14 @@ function handleKeyPress (event) {
   }
 }
 
-function handleKeyUp (event) {
-  console.log(event)
-  let btn = document.querySelector(`[data-key="${event.keyCode}"]`)
-  if (btn) {
-    btn.classList.remove("playing")
-  } 
+function handleTransitionEnd (event) {
+  this.classList.remove("playing")
 }
+
+const $keys = document.querySelectorAll(".key")
+
+$keys.forEach(key => {
+  key.addEventListener("transitionend", handleTransitionEnd)
+})
+
+document.addEventListener("keydown", handleKeyPress)
