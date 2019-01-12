@@ -7,8 +7,8 @@
   border: 4px solid blueviolet;
   border-radius: 5%;
   box-shadow: 10px 1px 1px;
-  transition-property: transform, background-color;
-  transition-duration: 0.1s;
+  transition-property: transform, background-color, border, box-shadow;
+  transition-duration: 0.2s;
 }
 
 .key:nth-child(2n) {
@@ -19,17 +19,32 @@
   grid-row: span 3;
 }
 
-
 .playing {
-  transition-property: transform, background-color;
-  transition-duration: 0.1s;
-  border: 4px solid peachpuff;
-  transform: scale(1.25);
-  box-shadow: 5px 1px 1px;
+  transform: scale(1.1);
+  box-shadow: 2px 1px 1px;
+  border-width: 4px;
+  border-style: solid
+}
+
+.playing:nth-child(odd) {
+  border-color: orange;
+}
+
+.playing:nth-child(3n) {
+  border-color: hotpink;
+}
+
+.playing:nth-child(2n) {
+  border-color: lightgreen;
+}
+
+.playing:nth-child(4n) {
+  border-color: powderblue;
 }
 
 .keys {
   max-width:90vw;
+  width: 100%;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -43,4 +58,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+kbd {
+  font-size: 30px;
+  font-weight: bold;
 }
